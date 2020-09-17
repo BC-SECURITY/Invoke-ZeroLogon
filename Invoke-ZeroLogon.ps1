@@ -2,11 +2,12 @@
 <#
 .SYNOPSIS
 
-This script can be run in two modes currently. If the reset parameter is not set to True then the script will simply
-scan the target computer for vulnerability to the ZeroLogon exploit (CVE-2020-1472). If the reset parameter is set
-to true then it will attempt to reset the target computer's password to the default NTLM hash (essentially an empty password).
-WARNING: resting the password of a Domain Controller is likely to break things. DO NOT use reset against a production
-system unless you fully understand the risks and have explicit permission.
+This script can be run in two modes currently.
+1. When the reset parameter is set to True, the script will attempt to reset the target computer’s password to the default NTLM hash (essentially an empty password).
+2. By default, reset is set to false and will simply scan if the target computer is vulnerable to the ZeroLogon exploit (CVE-2020-1472).
+WARNING: Resetting the password of a Domain Controller is likely to break the network. DO NOT use the reset parameter against a production system unless you fully understand the risks and have explicit permission.
+
+
 
 This code was heavily adapted from the C# implementation by the NCC Group's Full Spectrum Attack Simulation team
 https://github.com/nccgroup/nccfsas/tree/main/Tools/SharpZeroLogon
